@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://pandao.github.io/editor.md/en.html -->
+<html lang="es" class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths translated-ltr" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="keywords" content="Editor.md,editor,Markdown Editor,Markdown,编辑器,Markdown编辑器,Markdown在线编辑器,在线编辑器,开源编辑器,开源Markdown编辑器">
+        <meta name="description" content="Editor.md: a simple online markdown editor. 开源在线 Markdown 编辑器">
+	    <meta name="author" content="pandao, pandao@vip.qq.com">
+        <title>Editor.md: editor de Markdown en línea de código abierto.</title>
+        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="./Editor.md_documentacion_files/planeui.min.css">
+        <link rel="stylesheet" href="./Editor.md_documentacion_files/editormd.min.css">
+        <link rel="stylesheet" type="text/css" href="./Editor.md_documentacion_files/index.css">
+    <link type="text/css" rel="stylesheet" href="./Editor.md_documentacion_files/codemirror.min.css"><link type="text/css" rel="stylesheet" href="./Editor.md_documentacion_files/dialog.css"><link type="text/css" rel="stylesheet" href="./Editor.md_documentacion_files/matchesonscrollbar.css"><link type="text/css" rel="stylesheet" href="./Editor.md_documentacion_files/foldgutter.css"><script id="-lib-codemirror-codemirror-min" type="text/javascript" src="./Editor.md_documentacion_files/codemirror.min.js.descarga"></script><script id="-lib-codemirror-modes-min" type="text/javascript" src="./Editor.md_documentacion_files/modes.min.js.descarga"></script><script id="-lib-codemirror-addons-min" type="text/javascript" src="./Editor.md_documentacion_files/addons.min.js.descarga"></script><script id="-lib-marked-min" type="text/javascript" src="./Editor.md_documentacion_files/marked.min.js.descarga"></script><script id="-lib-prettify-min" type="text/javascript" src="./Editor.md_documentacion_files/prettify.min.js.descarga"></script><script id="-lib-raphael-min" type="text/javascript" src="./Editor.md_documentacion_files/raphael.min.js.descarga"></script><script id="-lib-underscore-min" type="text/javascript" src="./Editor.md_documentacion_files/underscore.min.js.descarga"></script><script id="-lib-flowchart-min" type="text/javascript" src="./Editor.md_documentacion_files/flowchart.min.js.descarga"></script><script id="-lib-jquery-flowchart-min" type="text/javascript" src="./Editor.md_documentacion_files/jquery.flowchart.min.js.descarga"></script><script id="-lib-sequence-diagram-min" type="text/javascript" src="./Editor.md_documentacion_files/sequence-diagram.min.js.descarga"></script><link type="text/css" rel="stylesheet" href="./Editor.md_documentacion_files/katex.min.css"><script id="-cdnjs-cloudflare-com-ajax-libs-KaTeX-0-3-0-katex-min" type="text/javascript" src="./Editor.md_documentacion_files/katex.min.js.descarga"></script><script id="-lib-plugins-link-dialog-link-dialog" type="text/javascript" src="./Editor.md_documentacion_files/link-dialog.js.descarga"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./Editor.md_documentacion_files/translateelement.css"></head>
+    <body style="">
+        <a name="top"></a>
+        <a href="https://pandao.github.io/editor.md/en.html#top" class="fa fa-arrow-circle-up fa-3x pui-text-blue-400" id="go-to-top" style="display: none;"></a>
+        <div class="pui-layout">
+            <header class="pui-bg-blue page-header">
+                <div class="pui-layout pui-layout-fixed pui-layout-fixed-1200 pui-layout-fixed-1360">
+                    <h1 class="pui-text-center pui-text-xxxxxl page-title animated zoomInDown">
+                        <a href="https://pandao.github.io/editor.md/index.html" class="pui-text-white">
+                            <i class="editormd-logo editormd-logo-2x"></i><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editor.md</font></font></strong>
+                        </a>
+                    </h1>
+                    <p class="pui-text-center pui-text-xl animated zoomInDown"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editor de Markdown en línea de código abierto.</font></font></p>
+                    <menu class="pui-text-center page-menu animated zoomInDown">
+                        <ul class="pui-menu pui-menu-inline pui-menu-radius">
+                            <li>
+                                <a href="https://pandao.github.io/editor.md/en.html#download"><i class="fa fa-cloud-download"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descargar</font></font></a>
+                            </li>
+                            <li>
+                                <a href="http://editor.md.ipandao.com/examples/index.html"><i class="fa fa-flask"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ejemplos</font></font><i class="pui-arrow-down"></i></a>
+                                <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/simple.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ejemplo sencillo</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/full.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ejemplo completo</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/html-preview-markdown-to-html.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Rebaja a HTML</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/form-get-value.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Obtenga valor en el formulario</font></font></a>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Extras de descuento</font></font></a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/toc.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ToC (Tabla de contenido)</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/task-lists.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Listas de tareas de GFM</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/emoji.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">emoticonos</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/@links.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Enlaces</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/katex.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TeX (KaTeX)</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/flowchart.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">diagrama de flujo</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/sequence-diagram.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Diagrama de secuencia</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/html-tags-decode.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Decodificación de etiquetas HTML</font></font></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editor personalizado.md</font></font></a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/define-plugin.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Definir complemento</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/themes.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tema de editor personalizado</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/custom-toolbar.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Barra de herramientas personalizada</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/custom-keyboard-shortcuts.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Atajos de teclado personalizados</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/change-mode.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Modo de cambio</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/manually-load-modules.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cargar módulos manualmente</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/multi-editormd.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Multi Editor.md</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/readonly.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Modo de solo lectura</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/code-fold.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pliegue de código</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/sync-scrolling.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bisync / Desplazamiento de sincronización única</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/external-use.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Método de uso externo</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/multi-languages.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Múltiples lenguas</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/auto-height.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Altura automática</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/dynamic-create-editormd.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editor de creación dinámica.md</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/search-replace.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Buscar / Reemplazar</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/set-get-replace-selection.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Insertar valor, Establecer/Obtener/Reemplazar texto de selección</font></font></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Identificador de eventos</font></font></a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/on-off.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Activar/Desactivar (vincular/desvincular)</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onload.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cargar</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onchange.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Onchange</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onresize.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Redimensionar</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onfullscreen.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En pantalla completa / En pantalla completa Salir</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onpreviewing-onpreviewed.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En vista previa / En vista previa</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onwatch-onunwatch.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En vigilancia / En vigilancia</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onscroll-onpreviewscroll.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Onscroll / Onpreviewscroll</font></font></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Carga de imagen</font></font></a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/image-upload.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Carga del mismo dominio</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/image-cross-domain-upload.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Subida entre dominios</font></font></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Usando Require.js, Sea.js, Zepto.js</font></font></a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/use-requirejs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Uso de Require.js</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/use-seajs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Usando Sea.js</font></font></a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/use-zepto.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Usando Zepto.js</font></font></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Más...</font></font></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="https://pandao.github.io/editor.md/en.html#dependents"><i class="fa fa-gears"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dependientes</font></font></a>
+                            </li>
+                            <li>
+                                <a href="https://pandao.github.io/editor.md/en.html#license"><i class="fa fa-check"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Licencia</font></font></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/pandao/editor.md/blob/master/CHANGE.md" target="_blank"><i class="fa fa-refresh"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambios</font></font></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/pandao/editor.md/issues" target="_blank"><i class="fa fa-question-circle"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Problemas</font></font></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/pandao/editor.md" target="_blank"><i class="fa fa-github"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Github</font></font></a>
+                            </li>
+                            <li>
+                                <a href="https://gitee.com/pandao/editor.md" target="_blank"><i class="fa fa-git"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Git@OSC</font></font></a>
+                            </li>
+                            <li>
+                                <a href="https://pandao.github.io/editor.md/index.html"><i class="fa fa-language"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中文版</font></font></a>
+                            </li>
+                        </ul>
+                    </menu>   
+                    <div class="page-header-container">
+                        <div class="editormd pui-z-depth-3 pui-bg-white editormd-vertical" id="index-editormd" style="width: 100%; height: 580px;"><textarea class="editormd-markdown-textarea" placeholder="¡Disfruta de rebajas!  codificando ahora..." name="index-editormd-markdown-doc" style="display: none;">
+### Crearemos un Proyecto con sus respectivas pruebas
+1.	A continuación, observamos el comando con el que creamos un proyecto Laravel.
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura.PNG?raw=true)
+
+Vamos a crear un test general, esto lo haremos con el siguiente código:
+![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_2.PNG?raw=true)
+Ahora creamos un nuevo archivo para el test:
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_3.PNG?raw=true)
+
+De manera visual se observa lo siguiente:
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_4.PNG?raw=true)
+Para asegurarnos de que nuestro proyecto esté bien, haremos nuevamente un test con siguiente comando:
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_5.PNG?raw=true)
+2.	Además, si realizamos un cambio en UserTest nos presentará un error, aquí podemos observar el cambio:
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_6.PNG?raw=true)
+
+Nuevamente haremos un test para certificar el error, como lo vemos a continuación:
+ 
+![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_7.PNG?raw=true)
+3.	Después de lo anterior vamos a crear un Test Unitario con el siguiente comando:
+
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_8.PNG?raw=true)
+
+4.	Por consiguiente, vamos a crear una ‘ui’, y esto lo haremos con el siguiente comando:
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_9.PNG?raw=true)
+
+Después de ello creamos una interfaz de autenticación reactiva, como lo muestro a continuación:
+ 
+
+![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_10.PNG?raw=true)
+
+
+
+5.	Después de haber realizado estas acciones procedemos a ejecutar los siguientes comandos, se recomienda hacerlo desde la terminal del sistema operativo predeterminado la cual será abierta desde la misma ruta de la carpeta del proyecto.
+ 
+
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_11.PNG?raw=true)
+
+6.	El siguiente paso sería dirigirnos a ‘MyAdmin’, desde allí crearemos la base de datos con el siguiente nombre 'testlaravel'.
+Procedemos a hacer la conexión desde Visual Studio Code a la Base de Datos, como se muestra a continuación:
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_12.PNG?raw=true)
+
+ 
+![](hhttps://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_13.PNG?raw=true)
+
+7.	Nos dirigimos a la terminal de Visual Studio Code de esta manera procedemos a realizar las migraciones a la base de datos después de haberla creada, como se muestra a continuación:
+ 
+![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_2.PNG?raw=true)
+
+
+
+
+
+ ![](https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_14.PNG?raw=true)
+
+
+</textarea><div class="CodeMirror cm-s-default CodeMirror-wrap" style="font-size: 13px; width: 601px; margin-top: 81px; height: 500px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 110.312px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px; display: block;"><div style="min-width: 1px; height: 2397px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 48px; margin-bottom: -7px; border-right-width: 23px; min-height: 2394px; padding-right: 7px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">X</font></font></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font></div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">61</font></font></div></div></div><div class="CodeMirror-measure"><pre><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 62.3125px; top: 68.9766px; height: 24.5859px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2</font></font></div><div class="CodeMirror-gutter-elt" style="left: 38px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-header cm-header-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">### Crearemos un Proyecto con sus respectivas pruebas</font></font></span></span></pre></div><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.</font></font><span class="cm-tab" role="presentation" cm-text="	">  </span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A continuación, observamos el comando con el que creamos un proyecto Laravel.</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">6</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vamos a crear una prueba general, esto lo haremos con el siguiente código:</font></font></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">7</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_2.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">8</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ahora creamos un nuevo archivo para la prueba:</font></font></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_3.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">10</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">11</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">De manera visual se observa lo siguiente:</font></font></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">12</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_4.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">13</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Para asegurarnos de que nuestro proyecto esté bien, haremos nuevamente una prueba con el siguiente comando:</font></font></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_5.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.</font></font><span class="cm-tab" role="presentation" cm-text="	">  </span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Además, si realizamos un cambio en UserTest nos presentará un error, aquí podemos observar el cambio:</font></font></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dieciséis</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_6.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">17</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">18</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nuevamente haremos una prueba para certificar el error, como lo vemos a continuación:</font></font></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">19</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-cm-overlay cm-trailingspace"> </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">20</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_7.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">21</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.</font></font><span class="cm-tab" role="presentation" cm-text="	">  </span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Después de lo anterior vamos a crear un Test Unitario con el siguiente comando:</font></font></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">22</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">23</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_8.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">24</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">25</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4.</font></font><span class="cm-tab" role="presentation" cm-text="	">  </span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Por consiguiente, vamos a crear una 'ui', y esto lo haremos con el siguiente comando:</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">26</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_9.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">27</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">28</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Después de ello creamos una interfaz de autenticación reactiva, como lo muestro a continuación:</font></font></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">29</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-cm-overlay cm-trailingspace"> </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">30</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">31</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">![] </font></font></span><span class="cm-string"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(https://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_10.PNG?raw=true)</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">32</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">33</font></font></div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">34</div></div><pre class=""><span style="padding-right: 0.1px;"><span cm-text=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">​</font></font></span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">35</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5.</font></font><span class="cm-tab" role="presentation" cm-text="	">  </span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Después de haber realizado estas acciones procedemos a ejecutar los siguientes comandos, se recomienda hacerlo desde la terminal del sistema operativo predeterminado la cual será abierta desde la misma ruta de la carpeta del proyecto.</font></font></span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 23px; width: 1px; top: 2394px;"></div><div class="CodeMirror-gutters" style="height: 2417px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div><a href="javascript:;" class="fa fa-close editormd-preview-close-btn"></a>
+
+<div class="editormd-preview" style="display: block; width: 600px; top: 81px; height: 500px;"><div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;"><h3 id="h3-crearemos-un-proyecto-con-sus-respectivas-pruebas"><a name="Crearemos un Proyecto con sus respectivas pruebas" class="reference-link"></a><span class="header-link octicon octicon-link"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Crearemos un Proyecto con sus respectivas pruebas</font></font></h3><ol>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A continuación, observamos el comando con el que creamos un proyecto Laravel.</font></font><br><img src="./Editor.md_documentacion_files/Captura.PNG" alt=""></li></ol>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vamos a crear un test general, esto lo haremos con el siguiente código: </font></font><br><img src="./Editor.md_documentacion_files/Captura_2.PNG" alt=""><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ahora creamos un nuevo archivo para el test:</font></font><br> <img src="./Editor.md_documentacion_files/Captura_3.PNG" alt=""></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">De manera visual se observa lo siguiente: </font></font><br> <img src="./Editor.md_documentacion_files/Captura_4.PNG" alt=""><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Para asegurarnos de que nuestro proyecto esté bien, haremos nuevamente una prueba con el siguiente comando:</font></font><br> <img src="./Editor.md_documentacion_files/Captura_5.PNG" alt=""></p>
+<ol>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Además, si realizamos un cambio en UserTest nos presentará un error, aquí podemos observar el cambio:</font></font><br><img src="./Editor.md_documentacion_files/Captura_6.PNG" alt=""></li></ol>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nuevamente haremos una prueba para certificar el error, como lo vemos a continuación:</font></font></p>
+<p><img src="./Editor.md_documentacion_files/Captura_7.PNG" alt=""></p>
+<ol>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Después de lo anterior vamos a crear un Test Unitario con el siguiente comando:</font></font></p>
+<p><img src="./Editor.md_documentacion_files/Captura_8.PNG" alt=""></p>
+</li><li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Por consiguiente, vamos a crear una 'ui', y esto lo haremos con el siguiente comando:</font></font><br><img src="./Editor.md_documentacion_files/Captura_9.PNG" alt=""></p>
+</li></ol>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Después de ello creamos una interfaz de autenticación reactiva, como lo muestro a continuación:</font></font></p>
+<p><img src="./Editor.md_documentacion_files/Captura_10.PNG" alt=""></p>
+<ol>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Después de haber realizado estas acciones procedemos a ejecutar los siguientes comandos, se recomienda hacerlo desde la terminal del sistema operativo predeterminado la cual será abierta desde la misma ruta de la carpeta del proyecto.</font></font></li></ol>
+<p> <img src="./Editor.md_documentacion_files/Captura_11.PNG" alt=""></p>
+<ol>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El siguiente paso sería dirigirnos a 'MyAdmin', desde allí crearemos la base de datos con el siguiente nombre 'testlaravel'. </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Procedemos a hacer la conexión desde Visual Studio Code a la Base de Datos, como se muestra a continuación:</font></font><br><img src="./Editor.md_documentacion_files/Captura_12.PNG" alt=""></li></ol>
+<p><img src="hhttps://github.com/ALEJANDRO817/Academia/blob/master/imagen_Doc/Captura_13.PNG?raw=true" alt=""></p>
+<ol>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nos dirigimos a la terminal de Visual Studio Code de esta manera procedemos a realizar las migraciones a la base de datos después de haberla creado, como se muestra a continuación:</font></font></li></ol>
+<p><img src="./Editor.md_documentacion_files/Captura_2.PNG" alt=""></p>
+<p> <img src="./Editor.md_documentacion_files/Captura_14.PNG" alt=""></p>
+</div></div>
+<div class="editormd-container-mask" style="display: none;"></div>
+<div class="editormd-mask" style="background-color: rgb(255, 255, 255); opacity: 0.1; z-index: 99998; display: none;"></div><div class="editormd-toolbar" style="display: block; position: absolute; width: 100%; left: 0px;"><div class="editormd-toolbar-container"><ul class="editormd-menu"><li><a href="javascript:;" title="Deshacer (Ctrl+Z)" unselectable="on"><i class="fa fa-undo" name="undo" unselectable="on"></i></a></li><li><a href="javascript:;" title="Rehacer (Ctrl+Y)" unselectable="on"><i class="fa fa-repeat" name="redo" unselectable="on"></i></a></li><li class="divider" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font></li><li><a href="javascript:;" title="Audaz" unselectable="on"><i class="fa fa-bold" name="bold" unselectable="on"></i></a></li><li><a href="javascript:;" title="tachado" unselectable="on"><i class="fa fa-strikethrough" name="del" unselectable="on"></i></a></li><li><a href="javascript:;" title="Itálico" unselectable="on"><i class="fa fa-italic" name="italic" unselectable="on"></i></a></li><li><a href="javascript:;" title="cotización en bloque" unselectable="on"><i class="fa fa-quote-left" name="quote" unselectable="on"></i></a></li><li><a href="javascript:;" title="La primera letra de las palabras se convierte a mayúscula" unselectable="on"><i class="fa" name="ucwords" style="font-size:20px;margin-top: -3px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Automóvil club británico</font></font></i></a></li><li><a href="javascript:;" title="Texto de selección convertir a mayúsculas" unselectable="on"><i class="fa fa-font" name="uppercase" unselectable="on"></i></a></li><li><a href="javascript:;" title="Texto de selección convertir a minúsculas" unselectable="on"><i class="fa" name="lowercase" style="font-size:24px;margin-top: -10px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">a</font></font></i></a></li><li class="divider" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font></li><li><a href="javascript:;" title="Título 1" unselectable="on"><i class="fa editormd-bold" name="h1" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">H1</font></font></i></a></li><li><a href="javascript:;" title="Título 2" unselectable="on"><i class="fa editormd-bold" name="h2" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">H2</font></font></i></a></li><li><a href="javascript:;" title="Título 3" unselectable="on"><i class="fa editormd-bold" name="h3" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">H3</font></font></i></a></li><li><a href="javascript:;" title="Título 4" unselectable="on"><i class="fa editormd-bold" name="h4" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">H4</font></font></i></a></li><li><a href="javascript:;" title="Título 5" unselectable="on"><i class="fa editormd-bold" name="h5" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">H5</font></font></i></a></li><li><a href="javascript:;" title="Título 6" unselectable="on"><i class="fa editormd-bold" name="h6" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">H6</font></font></i></a></li><li class="divider" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font></li><li><a href="javascript:;" title="Lista desordenada" unselectable="on"><i class="fa fa-list-ul" name="list-ul" unselectable="on"></i></a></li><li><a href="javascript:;" title="Lista ordenada" unselectable="on"><i class="fa fa-list-ol" name="list-ol" unselectable="on"></i></a></li><li><a href="javascript:;" title="Regla horizontal" unselectable="on"><i class="fa fa-minus" name="hr" unselectable="on"></i></a></li><li class="divider" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font></li><li><a href="javascript:;" title="Enlace" unselectable="on"><i class="fa fa-link" name="link" unselectable="on"></i></a></li><li><a href="javascript:;" title="Link de referencia" unselectable="on"><i class="fa fa-anchor" name="reference-link" unselectable="on"></i></a></li><li><a href="javascript:;" title="Imagen" unselectable="on"><i class="fa fa-picture-o" name="image" unselectable="on"></i></a></li><li><a href="javascript:;" title="Código en línea" unselectable="on"><i class="fa fa-code" name="code" unselectable="on"></i></a></li><li><a href="javascript:;" title="Texto preformateado / bloque de código (sangría de tabulación)" unselectable="on"><i class="fa fa-file-code-o" name="preformatted-text" unselectable="on"></i></a></li><li><a href="javascript:;" title="Bloque de código (Multi-idiomas)" unselectable="on"><i class="fa fa-file-code-o" name="code-block" unselectable="on"></i></a></li><li><a href="javascript:;" title="Mesas" unselectable="on"><i class="fa fa-table" name="table" unselectable="on"></i></a></li><li><a href="javascript:;" title="Fecha y hora" unselectable="on"><i class="fa fa-clock-o" name="datetime" unselectable="on"></i></a></li><li><a href="javascript:;" title="emoticonos" unselectable="on"><i class="fa fa-smile-o" name="emoji" unselectable="on"></i></a></li><li><a href="javascript:;" title="Entidades HTML" unselectable="on"><i class="fa fa-copyright" name="html-entities" unselectable="on"></i></a></li><li><a href="javascript:;" title="Salto de página" unselectable="on"><i class="fa fa-newspaper-o" name="pagebreak" unselectable="on"></i></a></li><li class="divider" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font></li><li><a href="javascript:;" title="" unselectable="on"><i class="fa fa-terminal" name="goto-line" unselectable="on"></i></a></li><li><a href="javascript:;" title="Dejar de mirar" unselectable="on"><i class="fa fa-eye-slash" name="watch" unselectable="on"></i></a></li><li><a href="javascript:;" title="Vista previa de HTML (Presione Shift + ESC para salir)" unselectable="on"><i class="fa fa-desktop" name="preview" unselectable="on"></i></a></li><li><a href="javascript:;" title="Pantalla completa (Presione ESC para salir)" unselectable="on"><i class="fa fa-arrows-alt" name="fullscreen" unselectable="on"></i></a></li><li><a href="javascript:;" title="Claro" unselectable="on"><i class="fa fa-eraser" name="clear" unselectable="on"></i></a></li><li><a href="javascript:;" title="Búsqueda" unselectable="on"><i class="fa fa-search" name="search" unselectable="on"></i></a></li><li class="divider" unselectable="on"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font></li><li><a href="javascript:;" title="Ayuda" unselectable="on"><i class="fa fa-question-circle" name="help" unselectable="on"></i></a></li><li><a href="javascript:;" title="Acerca de Editor.md" unselectable="on"><i class="fa fa-info-circle" name="info" unselectable="on"></i></a></li></ul></div></div><div class="editormd-dialog editormd-dialog-1662729327589" style="display: none; z-index: 99999; width: 380px; height: 211px; top: 183.5px; left: 489.5px;"><div class="editormd-dialog-header" style="cursor: move;"><strong class="editormd-dialog-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Enlace</font></font></strong></div><a href="javascript:;" class="fa fa-close editormd-dialog-close"></a><div class="editormd-dialog-container"><div class="editormd-form"><label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dirección</font></font></label><input type="text" value="http://" data-url=""><br><label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Título</font></font></label><input type="text" value="" data-title=""><br></div><div class="editormd-dialog-footer"><button class="editormd-btn editormd-enter-btn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ingresar</font></font></button><button class="editormd-btn editormd-cancel-btn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cancelar</font></font></button></div></div><div class="editormd-dialog-mask editormd-dialog-mask-bg"></div><div class="editormd-dialog-mask editormd-dialog-mask-con"></div></div></div>                        
+                    </div>
+                </div>
+            </header>
+            <div class="pui-grid pui-layout pui-layout-fixed pui-layout-fixed-1200 page-content">
+                <div class="pui-row">
+                    <div class="pui-grid-xs-8">
+                        <a name="start"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1 class="pui-text-left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ejemplo</font></font></h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <div class="code-box">
+                                    <pre class="prettyprint lang-html example-code prettyprinted" style=""><span class="tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;link </font></font></span><font style="vertical-align: inherit;"><span class="atn"><font style="vertical-align: inherit;">rel </font></span><span class="pun"><font style="vertical-align: inherit;">= </font></span><span class="atv"><font style="vertical-align: inherit;">"hoja de estilo" </font></span><span class="atn"><font style="vertical-align: inherit;">href </font></span><span class="pun"><font style="vertical-align: inherit;">= </font></span><span class="atv"><font style="vertical-align: inherit;">"editormd/css/editormd.css" </font></span><span class="tag"><font style="vertical-align: inherit;">/&gt; </font></span><span class="tag"><font style="vertical-align: inherit;">&lt;div </font></span><span class="atn"><font style="vertical-align: inherit;">id </font></span><span class="pun"><font style="vertical-align: inherit;">= </font></span><span class="atv"><font style="vertical-align: inherit;">"test-editor" </font></span><span class="tag"><font style="vertical-align: inherit;">&gt; </font></span><span class="tag"><font style="vertical-align: inherit;">&lt;textarea </font></span><span class="atn"><font style="vertical-align: inherit;">style </font></span><span class="pun"><font style="vertical-align: inherit;">= </font></span><span class="atv"><font style="vertical-align: inherit;">" </font></span><span class="pln"><font style="vertical-align: inherit;">display </font></span><span class="pun"><font style="vertical-align: inherit;">: </font></span><span class="pln"><font style="vertical-align: inherit;">none </font></span><span class="pun"><font style="vertical-align: inherit;">; </font></span><span class="atv"><font style="vertical-align: inherit;">" </font></span><span class="tag"><font style="vertical-align: inherit;">&gt; </font></span><span class="pln"><font style="vertical-align: inherit;">### Editor.md</font></span></font><span class="pln"> </span><span class="atn"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="atv"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="atn"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="atv"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln">
+</span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="atn"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="atv"><font style="vertical-align: inherit;"></font></span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln">
+    </span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="atn"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="atv"><font style="vertical-align: inherit;"></font></span><span class="pln"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="pln"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="atv"><font style="vertical-align: inherit;"></font></span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln"><font style="vertical-align: inherit;"></font><font></font>
+<font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+**Editor.md**: el editor de rebajas en línea integrable de código abierto, basado en CodeMirror, jQuery y Marked.</font></font><font></font>
+    </span><span class="tag"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;/textarea&gt; </font></font></span><font style="vertical-align: inherit;"><span class="tag"><font style="vertical-align: inherit;">&lt;/div&gt; </font></span><span class="tag"><font style="vertical-align: inherit;">&lt;script </font></span><span class="atn"><font style="vertical-align: inherit;">src </font></span><span class="pun"><font style="vertical-align: inherit;">= </font></span><span class="atv"><font style="vertical-align: inherit;">"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" </font></span><span class="tag"><font style="vertical-align: inherit;">&gt;&lt;/script&gt; </font></span><span class="tag"><font style="vertical-align: inherit;">&lt;script </font></span><span class="atn"><font style="vertical-align: inherit;">src </font></span><span class="pun"><font style="vertical-align: inherit;">= </font></span><span class="atv"><font style="vertical-align: inherit;">"editormd /editormd.min.js" </font></span><span class="tag"><font style="vertical-align: inherit;">&gt;&lt;/script&gt; </font></span><span class="tag"><font style="vertical-align: inherit;">&lt;script </font></span><span class="atn"><font style="vertical-align: inherit;">type </font></span><span class="pun"><font style="vertical-align: inherit;">= </font></span><span class="atv"><font style="vertical-align: inherit;">"text/javascript" </font></span><span class="tag"><font style="vertical-align: inherit;">&gt; </font></span><span class="pln"><font style="vertical-align: inherit;">
+    $ </font></span><span class="pun"><font style="vertical-align: inherit;">( </font></span><span class="kwd"><font style="vertical-align: inherit;">función </font></span><span class="pun"><font style="vertical-align: inherit;">() </font></span><span class="pun"><font style="vertical-align: inherit;">{ </font></span><span class="kwd"><font style="vertical-align: inherit;">var </font></span><span class="pln"><font style="vertical-align: inherit;">editor </font></span><span class="pun"><font style="vertical-align: inherit;">= </font></span><span class="pln"><font style="vertical-align: inherit;">editormd </font></span><span class="pun"><font style="vertical-align: inherit;">( </font></span><span class="str"><font style="vertical-align: inherit;">"test-editor" </font></span><span class="pun"><font style="vertical-align: inherit;">, </font></span><span class="pun"><font style="vertical-align: inherit;">{ </font></span><span class="com"><font style="vertical-align: inherit;">// ancho: "100%", </font></span><span class="com"><font style="vertical-align: inherit;">/ / altura: "100%", </font></span><span class="pln"><font style="vertical-align: inherit;">
+            ruta    </font></span><span class="pun"><font style="vertical-align: inherit;">: </font></span><span class="str"><font style="vertical-align: inherit;">"editormd/lib/" </font></span><span class="pun"><font style="vertical-align: inherit;">}); </font></span><span class="pun"><font style="vertical-align: inherit;">});</font></span><span class="tag"><font style="vertical-align: inherit;">&lt;/script&gt;</font></span></font><span class="pln">
+</span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln">
+</span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="atn"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="atv"><font style="vertical-align: inherit;"></font></span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln">
+</span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="atn"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="atv"><font style="vertical-align: inherit;"></font></span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln">
+</span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="atn"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="atv"><font style="vertical-align: inherit;"></font></span><span class="tag"><font style="vertical-align: inherit;"></font></span><span class="pln"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="kwd"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="pln">
+        </span><span class="kwd"><font style="vertical-align: inherit;"></font></span><span class="pln"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="pln"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="str"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="pln">
+            </span><span class="com"><font style="vertical-align: inherit;"></font></span><span class="pln">
+            </span><span class="com"><font style="vertical-align: inherit;"></font></span><span class="pln"><font style="vertical-align: inherit;"></font></span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="pln"> </span><span class="str"><font style="vertical-align: inherit;"></font></span><span class="pln">
+        </span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="pln">
+    </span><span class="pun"><font style="vertical-align: inherit;"></font></span><span class="pln">
+</span><span class="tag"><font style="vertical-align: inherit;"></font></span></pre>
+                                    <span class="copy-btn" data-clipboard-text="&lt;link rel=&quot;stylesheet&quot; href=&quot;editormd/css/editormd.css&quot; /&gt;
+&lt;div id=&quot;test-editor&quot;&gt;
+    &lt;textarea style=&quot;display:none;&quot;&gt;### Editor.md
+
+**Editor.md**: The open source embeddable online markdown editor, based on CodeMirror &amp; jQuery &amp; Marked.
+    &lt;/textarea&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;editormd/editormd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(function() {
+        var editor = editormd(&quot;test-editor&quot;, {
+            // width  : &quot;100%&quot;,
+            // height : &quot;100%&quot;,
+            path   : &quot;editormd/lib/&quot;
+        });
+    });
+&lt;/script&gt;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copiar</font></font></span>
+                                </div>
+                                <p class="pui-text-right"><a href="http://editor.md.ipandao.com/examples/" class="link pui-text-blue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Más ejemplos &gt;&gt;</font></font></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pui-grid-xs-4">
+                        <div class="pui-card-title">
+                            <h1 class="pui-text-left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Características</font></font></h1>
+                        </div>
+                        <div class="pui-card-box">
+                            <ul>
+                                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Admite Markdown estándar / CommonMark y GFM (rebajas con sabor a GitHub);</font></font></li>
+                                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Con todas las funciones: vista previa en tiempo real, </font></font><a href="http://editor.md.ipandao.com/examples/image-upload.html" class="link pui-text-blue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">carga de imágenes (entre dominios)</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , texto preformateado/bloques de código/inserción de tablas, plegado de código, reemplazo de búsqueda, solo lectura, temas, varios idiomas, L18n, entidades HTML, resaltado de sintaxis de código. ..;</font></font></li>
+                                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Extras de Markdown: Soporte </font></font><a href="http://editor.md.ipandao.com/examples/toc.html" class="link pui-text-blue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ToC (Tabla de contenido)</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , </font></font><a href="http://editor.md.ipandao.com/examples/emoji.html" class="link pui-text-blue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Emoji</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , </font></font><a href="http://editor.md.ipandao.com/examples/task-lists.html" class="link pui-text-blue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Listas de tareas</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , </font></font><a href="http://editor.md.ipandao.com/examples/@links.html" class="link pui-text-blue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Enlaces</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ...;</font></font></li>
+                                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Admite </font></font><a href="http://editor.md.ipandao.com/examples/katex.html" class="link pui-text-blue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TeX (expresiones LaTeX, basadas en KaTeX)</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , diagrama de </font></font><a href="http://editor.md.ipandao.com/examples/flowchart.html" class="link pui-text-blue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">flujo</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> y </font></font><a href="http://editor.md.ipandao.com/examples/sequence-diagram.html" class="link pui-text-blue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">diagrama de secuencia</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> de la sintaxis extendida de Markdown;</font></font></li>
+                                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Soporta identificación, interpretación, filtrado de las etiquetas HTML;</font></font></li>
+                                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Compatibilidad con el cargador de módulos AMD/CMD (Require.js y Sea.js) y los complementos del editor personalizado/definido;</font></font></li>
+                                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Compatible con todos los principales navegadores (IE8+), compatible con Zepto.js y iPad;</font></font></li>
+                                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Admite estilos de tema personalizados;</font></font></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="pui-hr pui-layout-fixed pui-layout-fixed-1200">
+            <div class="pui-grid pui-layout pui-layout-fixed pui-layout-fixed-1200 page-content">
+                <div class="pui-row">
+                    <div class="pui-grid-xs-12 pui-grid-sm-4 pui-grid-md-4">
+                        <a name="download"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descargar e instalar</font></font></h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Última versión: v1.5.0, Actualización: 2015-06-09</font></font></p>
+                                <p><a href="https://github.com/pandao/editor.md/archive/master.zip" class="pui-btn pui-btn-secondary"><i class="fa fa-lg fa-github"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descarga GitHub</font></font></a></p>
+                                <br>
+                                <p><img src="./Editor.md_documentacion_files/editor.md.svg"> <img src="./Editor.md_documentacion_files/editor.md(1).svg"></p>
+                                <br>
+                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">O instalación de NPM:</font></font></p>
+                                <p><code>npm install editor.md</code></p>
+                                <p><img src="./Editor.md_documentacion_files/editor.md(2).svg"></p>
+                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">O Bower instalar:</font></font></p>
+                                <p><code>bower install editor.md</code></p>
+                                <p><img src="./Editor.md_documentacion_files/editor.md(3).svg"></p>
+                                <br>
+                                <p><strong class="pui-text-md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cambiar registros:</font></font></strong></p>
+                                <p><a href="https://github.com/pandao/editor.md/blob/master/CHANGE.md" class="pui-link" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CAMBIOS</font></font></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pui-grid-xs-12 pui-grid-sm-4 pui-grid-md-4">                        
+                        <a name="dependents"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dependientes</font></font></h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Proyectos :</font></font></p>
+                                <ul>
+                                    <li>
+                                        <a href="http://codemirror.net/" title="CódigoMirror" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CódigoMirror</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/chjj/marked" title="marcado" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">marcado</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://jquery.com/" title="jQuery" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">jQuery</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://fontawesome.io/" title="FuenteAwesome" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FuenteAwesome</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/sindresorhus/github-markdown-css" title="github-markdown.css" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">github-markdown.css</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://khan.github.io/KaTeX/" title="KaTeX" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">KaTeX</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://raphaeljs.com/" title="Rephael.js" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Rephael.js</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://code.google.com/p/google-code-prettify/" title="embellecer.js" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">embellecer.js</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://adrai.github.io/flowchart.js/" title="diagrama de flujo.js" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">diagrama de flujo.js</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://bramp.github.io/js-sequence-diagrams/" title="secuencia-diagrama.js" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">secuencia-diagrama.js</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/pandao/prefixes.scss" title="Prefijos.scss" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Prefijos.scss</font></font></a>
+                                    </li>
+                                </ul>
+                                <br>
+                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Herramientas de desarrollo :</font></font></p>
+                                <ul>
+                                    <li>
+                                        <a href="https://code.visualstudio.com/" title="código de estudio visual" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">código de estudio visual</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://sass-lang.com/" title="Descaro/Scss" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descaro/Scss</font></font></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://gulpjs.com/" title="Gulp.js" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gulp.js</font></font></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pui-grid-xs-12 pui-grid-sm-4 pui-grid-md-4">                
+                        <a name="license"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Licencia</font></font></h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editor.md sigue la </font></font><a href="https://github.com/pandao/editor.md/blob/master/LICENSE" class="pui-link" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">licencia MIT</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , cualquiera puede usarlo libremente.</font></font></p>
+                                <br>
+                                <p><a href="https://github.com/pandao/editor.md/issues/new" class="pui-btn pui-btn-secondary" target="_blank" title="Enviar errores o problemas nuevos"><i class="fa fa-lg fa-github"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Enviar errores o problemas nuevos</font></font></a></p>
+                                <p><img src="./Editor.md_documentacion_files/editor.md(4).svg"></p>
+                                <div class="github-buttons">
+                                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bifurcame en Github:</font></font></p>
+                                    <p><iframe src="./Editor.md_documentacion_files/github-btn.html" frameborder="0" scrolling="0" width="160px" height="30px"></iframe></p>
+                                    <p><iframe src="./Editor.md_documentacion_files/github-btn(1).html" frameborder="0" scrolling="0" width="160px" height="30px"></iframe></p>
+                                    <p><iframe src="./Editor.md_documentacion_files/github-btn(2).html" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+</p>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <hr class="pui-hr pui-layout-fixed pui-layout-fixed-1200">
+            <div class="pui-grid pui-layout pui-layout-fixed pui-layout-fixed-1200 page-content">
+                <div class="pui-row">
+                    <div class="pui-grid-xs-12">
+                        <a name="users"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1 class="pui-text-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Usuarios</font></font></h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.alipay.com/" target="_blank" title="Alipay">
+                                            <img src="./Editor.md_documentacion_files/alipay.png" alt="Alipay">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.alibaba.com/" target="_blank" title="alibaba">
+                                            <img src="./Editor.md_documentacion_files/alibaba.png" alt="alibaba">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.huawei.com/" target="_blank" title="huawei">
+                                            <img src="./Editor.md_documentacion_files/huawei.png" alt="huawei">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://work.weixin.qq.com/" target="_blank" title="Trabajo en WeChat">
+                                            <img src="./Editor.md_documentacion_files/wechat-work.png" alt="Trabajo en WeChat">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.jd.com/" target="_blank" title="JD.com">
+                                            <img src="./Editor.md_documentacion_files/jd.png" alt="JD.com">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.360.cn/" target="_blank" title="360">
+                                            <img src="./Editor.md_documentacion_files/360.png" alt="360">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.4399.com/" target="_blank" title="4399">
+                                            <img src="./Editor.md_documentacion_files/4399.png" alt="4399">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.oschina.net/" target="_blank" title="OSChina.net">
+                                            <img src="./Editor.md_documentacion_files/oschina.png" alt="OSChina.net">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.youdao.com/" target="_blank" title="Youdao">
+                                            <img src="./Editor.md_documentacion_files/youdao.jpg" alt="Youdao">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.yy.com/" target="_blank" title="YY.com">
+                                            <img src="./Editor.md_documentacion_files/yy.jpg" alt="YY.com">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.jumei.com/" target="_blank" title="JUMEI">
+                                            <img src="./Editor.md_documentacion_files/jumei.jpg" alt="JUMEI">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.9you.com/" target="_blank" title="9you.com">
+                                            <img src="./Editor.md_documentacion_files/9you.jpg" alt="9you.com">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.csdn.net/" target="_blank" title="CSDN">
+                                            <img src="./Editor.md_documentacion_files/csdn.jpg" alt="CSDN">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.mi.com/" target="_blank" title="Xiaomi MI.com">
+                                            <img src="./Editor.md_documentacion_files/xiaomi.png" alt="Xiaomi MI.com">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.meizu.com/" target="_blank" title="MEIZU">
+                                            <img src="./Editor.md_documentacion_files/meizu.png" alt="MEIZU">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://golangtc.com/" target="_blank" title="Comunidad china de Golang">
+                                            <img src="./Editor.md_documentacion_files/golangtc.jpg" alt="Comunidad china de Golang">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.nio.cn/" target="_blank" title="NIÑO">
+                                            <img src="./Editor.md_documentacion_files/nio.png" alt="NIÑO">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://edn.egret.com/cn/" target="_blank" title="Motor de juego Egret HTML5">
+                                            <img src="./Editor.md_documentacion_files/egret-engine.jpg" alt="Motor de juego Egret HTML5">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://bbs.pkbigdata.com/" target="_blank" title="castillo de datos">
+                                            <img src="./Editor.md_documentacion_files/datacastle.jpg" alt="castillo de datos">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.showdoc.cc/" target="_blank" title="ShowDoc：一个非常适合IT团队的在线API文档、技术文档工具">
+                                            <img src="./Editor.md_documentacion_files/showdoc.png" alt="mostrardoc">
+                                        </a>
+                                    </li>     
+                                </ul>
+                                <br>
+                                <p class="pui-text-center"><a href="mailto:editor.md@ipandao.com" class="pui-text-blue"><i class="fa fa-envelope-o"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contáctenos:</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> editor.md@ipandao.com</font></font></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="pui-hr pui-layout-fixed pui-layout-fixed-1200">
+            <footer class="pui-layout pui-layout-fixed pui-layout-fixed-1200 page-footer pui-clear">
+                <h1 class="pui-text-lg pui-right pui-text-center">
+                    <p>
+                        <img src="./Editor.md_documentacion_files/editormd-logo-64x64.png">
+                        <span class="pui-block pui-text-gray pui-text-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editor.md</font></font></span>
+                    </p>
+                </h1>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright © 2015-2019 </font></font><a href="https://github.com/pandao/editor.md" class="pui-link" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editor.md</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , </font></font><a href="https://github.com/pandao/editor.md/blob/master/LICENSE" class="pui-link" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">licencia MIT.</font></font></a></p>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Diseño y desarrollo por: </font></font><a href="https://github.com/pandao" class="pui-link" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pandao</font></font></a>
+                 <a href="https://github.com/pandao" target="_blank"><i class="fa fa-github fa-lg"></i></a>
+                 <a href="https://twitter.com/ipandao" target="_blank"><i class="fa fa-twitter fa-lg pui-text-blue"></i></a>
+                 <a href="http://weibo.com/ipandao" target="_blank"><i class="fa fa-weibo fa-lg pui-text-red"></i></a>&nbsp;&nbsp; 
+                 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254310986'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1254310986%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1254310986"></span><script src="./Editor.md_documentacion_files/stat.php" type="text/javascript"></script>
+                </p>
+            </footer>
+        </div>
+        
+        <script src="./Editor.md_documentacion_files/jquery.min.js.descarga"></script>
+
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="https://pandao.github.io/dist/js/planeui.patch.ie8.min.js"></script>
+        <![endif]-->
+
+        <!--[if lt IE 10]>
+        <script type="text/javascript" src="https://pandao.github.io/dist/js/planeui.patch.ie9.min.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript" src="./Editor.md_documentacion_files/planeui.js.descarga"></script>
+        <script src="./Editor.md_documentacion_files/editormd.min.js.descarga"></script>   
+        <script src="./Editor.md_documentacion_files/clipboard.min.js.descarga"></script>
+        <script src="./Editor.md_documentacion_files/en.js.descarga"></script>
+        <script src="./Editor.md_documentacion_files/index-en.js.descarga"></script>
+    
+
+<div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Editor.md_documentacion_files/translate_24dp.png" width="20" height="20" alt="Google Traductor de Google"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugiere una traducción mejor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><i title="Selector de color Raphaël" style="display: none; color: white;"></i><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
